@@ -7,17 +7,20 @@
 //
 
 import UIKit
+import CoreBluetooth
 
 class ViewController: UIViewController {
     
-@IBOutlet weak var background: UIImageView!
+@IBOutlet weak var background: UIImageView!//nothing done with the background pic
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    //out of Android Studio and Eclipse I'd like the award xCode for being the most difficult to do version control with! yay......
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
+    
+        // Core BLE
+        var manager:CBCentralManager
+        manager = CBCentralManager()
+        centralManagerDidUpdateState(manager)
+
     }
 
     
@@ -27,6 +30,42 @@ class ViewController: UIViewController {
     }
 
 
+    struct UUID{
+        let uuidString: String
+        
+        init(){
+            self.uuidString = "f459f6de-560d-49cb-813a-79fd46ee5b3f"
+        }
+    }
+//
+//    struct CBCentralManager{
+//        let CBCentralManagerDelegat: delegate
+//        init() {
+//            manager.delegate = self
+//        }
+//    }
+    
+    //Check the device bluetooth status.
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        if central.state == .poweredOn {
+            print("Bluetooth is connected")
+        }
+        else if central.state == .resetting{
+            print("Bluetooth is resetting")
+        }
+        else if central.state == .unauthorized{
+            print("Bluetooth is unauthorized")
+        }
+        else if central.state == .unknown{
+            print("Bluetooth is unkown state")
+        }
+        else if central.state == .unsupported{
+            print("Bluetooth is unsupported")
+        }
+        else if central.state == .poweredOff{
+            print("Bluetooth is not Connected.Please Enable it")
+        }
+    }
 }
 
     

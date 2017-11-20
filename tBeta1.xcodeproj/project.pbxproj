@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EBA57A21FC2DC2D0081EFEA /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EBA57A11FC2DC1A0081EFEA /* CoreBluetooth.framework */; };
 		1EF1529D1FC2C75700BB715E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF1529C1FC2C75700BB715E /* AppDelegate.swift */; };
 		1EF1529F1FC2C75700BB715E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF1529E1FC2C75700BB715E /* ViewController.swift */; };
 		1EF152A21FC2C75700BB715E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF152A01FC2C75700BB715E /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EBA57A11FC2DC1A0081EFEA /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		1EF152991FC2C75700BB715E /* tBeta1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tBeta1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF1529C1FC2C75700BB715E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EF1529E1FC2C75700BB715E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EBA57A21FC2DC2D0081EFEA /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EBA57A01FC2DC1A0081EFEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1EBA57A11FC2DC1A0081EFEA /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1EF152901FC2C75700BB715E = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +94,7 @@
 				1EF152B31FC2C75700BB715E /* tBeta1Tests */,
 				1EF152BE1FC2C75700BB715E /* tBeta1UITests */,
 				1EF1529A1FC2C75700BB715E /* Products */,
+				1EBA57A01FC2DC1A0081EFEA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
