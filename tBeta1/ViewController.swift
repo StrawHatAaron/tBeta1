@@ -16,11 +16,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        // Core BLE
-        var manager:CBCentralManager
-        manager = CBCentralManager()
-        centralManagerDidUpdateState(manager)
-
+        //Core BLE
+        //peripherals
+        var peripheralDelegateName: String
+        var peripheralDelegate: CBPeripheralDelegate
+        var peripheral:CBPeripheral
+        //managers
+        var managerCentralDelegate:CBCentralManagerDelegate
+        var managerCentral:CBCentralManager
+        managerCentral = CBCentralManager()
+        //CBUUID array
+        var uuidStr = "16107de1-46b4-4a21-856b-fe1c737da2fe"
+        var uuidData = Data.init(count: 8)
+        var uuid = CBUUID.init(stringID: uuidStr, intID: uuidData)
+        
+        
+        centralManagerDidUpdateState(managerCentral)
+       //LEFT OFF HERE. Can't scan yet anyways so it's a good place to stop
+       // scanForPeripherals(withServices serviceUUIDs: [uuid]?)
     }
 
     
@@ -29,22 +42,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
-    struct UUID{
+    //allows for a 16-bit 32-bit or 128-bit UUID
+    //defined in the Bluetooth 4.0 specification, Volume 3, Part F, Section 3.2.1.
+    struct CBUUID{
         let uuidString: String
-        
-        init(){
-            self.uuidString = "f459f6de-560d-49cb-813a-79fd46ee5b3f"
+        var uuidData: Data
+        init(stringID: String, intID: Data){
+            self.uuidString = stringID
+            self.uuidData = intID
         }
     }
-//
-//    struct CBCentralManager{
-//        let CBCentralManagerDelegat: delegate
-//        init() {
-//            manager.delegate = self
-//        }
-//    }
-    
+
     //Check the device bluetooth status.
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == .poweredOn {
@@ -57,7 +65,7 @@ class ViewController: UIViewController {
             print("Bluetooth is unauthorized")
         }
         else if central.state == .unknown{
-            print("Bluetooth is unkown state")
+            print("Bluetooth is unkown state")//ended in an unknown state. Check Simulator settings
         }
         else if central.state == .unsupported{
             print("Bluetooth is unsupported")
@@ -66,6 +74,8 @@ class ViewController: UIViewController {
             print("Bluetooth is not Connected.Please Enable it")
         }
     }
+    
+    func scanForPeripherals(withServices serviceUUIDs: [CBUUID]?,options: [String : Any]? = nil){}//is it even doing anything
 }
 
     
