@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    //out of Android Studio and Eclipse I'd like the award xCode for being the most difficult to do version control with! yay......
         
         // Do any additional setup after loading the view, typically from a nib.
         
